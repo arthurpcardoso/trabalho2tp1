@@ -11,4 +11,16 @@
 
 using namespace std;
 
-int main() {}
+int main()
+{
+
+    IApresentacaoAutenticacao *cntrApresentacaoAutenticacao;
+
+    cntrApresentacaoAutenticacao = new CntrApresentacaoAutenticacao();
+
+    IServicoAutenticacao *stubServicoAutenticacao;
+
+    stubServicoAutenticacao = new StubServicoAutenticacao();
+
+    cntrApresentacaoAutenticacao->setCntrServicoAutenticacao(stubServicoAutenticacao);
+}
