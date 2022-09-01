@@ -14,16 +14,12 @@
 class CntrApresentacaoControle
 {
 private:
-    CPF cpf;
+    Email email;
     IApresentacaoAutenticacao *cntrApresentacaoAutenticacao;
-    IApresentacaoPessoal *cntrApresentacaoPessoal;
-    IApresentacaoProdutosFinanceiros *cntrApresentacaoProdutosFinanceiros;
 
 public:
     void executar();
     void setCntrApresentacaoAutenticacao(IApresentacaoAutenticacao *);
-    void setCntrApresentacaoPessoal(IApresentacaoPessoal *);
-    void setCntrApresentacaoProdutosFinanceiros(IApresentacaoProdutosFinanceiros *);
 };
 
 inline void CntrApresentacaoControle::setCntrApresentacaoAutenticacao(IApresentacaoAutenticacao *cntr)
@@ -31,15 +27,7 @@ inline void CntrApresentacaoControle::setCntrApresentacaoAutenticacao(IApresenta
     cntrApresentacaoAutenticacao = cntr;
 }
 
-inline void CntrApresentacaoControle::setCntrApresentacaoPessoal(IApresentacaoPessoal *cntr)
-{
-    cntrApresentacaoPessoal = cntr;
-}
-
-inline void CntrApresentacaoControle::setCntrApresentacaoProdutosFinanceiros(IApresentacaoProdutosFinanceiros *cntr)
-{
-    cntrApresentacaoProdutosFinanceiros = cntr;
-}
+//--------------------------------------------------------------------------------------------
 
 class CntrApresentacaoAutenticacao : public IApresentacaoAutenticacao
 {

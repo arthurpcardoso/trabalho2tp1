@@ -14,4 +14,11 @@ public:
     virtual ~IApresentacaoAutenticacao() {}
 };
 
+class IServicoAutenticacao
+{
+public:
+    virtual bool autenticar(Email, Senha) = 0;
+    virtual ~IServicoAutenticacao() {}
+};
+
 #endif // INTERFACES_H_INCLUDED
