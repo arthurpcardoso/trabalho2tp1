@@ -7,8 +7,27 @@
 #include <vector>
 
 #include "../Headers/dominios.h"
-#include "../Headers/entidades.h"
+#include "../Headers/interfaces.h"
+#include "../Headers/controladorapresentacao.h"
+#include "../Headers/stubs.h"
 
 using namespace std;
 
-int main() {}
+int main()
+{
+
+    CntrApresentacaoControle *cntrApresentacaoControle;
+    IApresentacaoAutenticacao *cntrApresentacaoAutenticacao;
+
+    cntrApresentacaoControle = new CntrApresentacaoControle();
+    cntrApresentacaoAutenticacao = new CntrApresentacaoAutenticacao();
+
+    IServicoAutenticacao *stubServicoAutenticacao;
+
+    stubServicoAutenticacao = new StubServicoAutenticacao();
+
+    cntrApresentacaoControle->setCntrApresentacaoAutenticacao(cntrApresentacaoAutenticacao);
+    cntrApresentacaoAutenticacao->setCntrServicoAutenticacao(stubServicoAutenticacao);
+
+    cntrApresentacaoControle->executar();
+}
