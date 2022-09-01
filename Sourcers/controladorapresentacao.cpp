@@ -1,5 +1,61 @@
 #include "../Headers/controladorapresentacao.h"
 
+void CntrApresentacaoControle::executar()
+{
+
+    // Mensagens a serem apresentadas na tela inicial.
+
+    char texto1[] = "Selecione um dos servicos : ";
+    char texto2[] = "1 - Acessar sistema.";
+    char texto3[] = "2 - Cadastrar usuario.";
+    char texto4[] = "3 - Em producao";
+    char texto5[] = "4 - Encerrar execucao do sistema.";
+
+    // Mensagens a serem apresentadas na tela de sele��o de servi�o.
+
+    char texto9[] = "3 - Encerrar sessao.";
+
+    char texto10[] = "Falha na autenticacao. Digite algo para continuar."; // Mensagem a ser apresentada.
+
+    int campo; // Campo de entrada.
+
+    bool apresentar = true; // Controle de la�o.
+
+    while (apresentar)
+    {
+
+        // Apresenta tela inicial.
+
+        CLR_SCR; // Limpa janela.
+
+        cout << texto1 << endl; // Imprime nome do campo.
+        cout << texto2 << endl; // Imprime nome do campo.
+        cout << texto3 << endl; // Imprime nome do campo.
+        cout << texto4 << endl; // Imprime nome do campo.
+        cout << texto5 << endl; // Imprime nome do campo.
+
+        campo = getch() - 48; // Leitura do campo de entrada e convers�o de ASCII.
+
+        switch (campo)
+        {
+        case 1:
+            if (cntrApresentacaoAutenticacao->autenticar(&email))
+            { // Solicita autentica��o.
+                cout << "autenticado" << endl;
+                break;
+            // case 2: cntrApresentacaoPessoal->cadastrar();
+            //         break;
+            // case 3: cntrApresentacaoProdutosFinanceiros->executar();
+            //         break;
+            case 4:
+                apresentar = false;
+                break;
+            }
+        }
+        return;
+    }
+}
+
 bool CntrApresentacaoAutenticacao::autenticar(Email *email)
 {
 
