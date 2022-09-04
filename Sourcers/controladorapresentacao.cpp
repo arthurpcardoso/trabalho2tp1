@@ -43,17 +43,23 @@ void CntrApresentacaoControle::executar()
             { // Solicita autentica��o.
                 cout << "autenticado" << endl;
                 break;
-            // case 2: cntrApresentacaoPessoal->cadastrar();
-            //         break;
-            // case 3: cntrApresentacaoProdutosFinanceiros->executar();
-            //         break;
-            case 4:
-                apresentar = false;
-                break;
             }
+            else
+            {
+                CLR_SCR;                 // Limpa janela.
+                cout << texto10 << endl; // Imprime mensagem.
+                getch();                 // Leitura de caracter digitado.
+            }
+            break;
+        case 2:
+            cntrApresentacaoPessoal->cadastrar();
+            break;
+        case 3:
+            apresentar = false;
+            break;
         }
-        return;
     }
+    return;
 }
 
 bool CntrApresentacaoAutenticacao::autenticar(Email *email)
@@ -98,4 +104,78 @@ bool CntrApresentacaoAutenticacao::autenticar(Email *email)
         }
     }
     return (cntr->autenticar(*email, senha)); // Solicita servi�o de autentica��o.
+}
+
+//--------------------------------------------------------------------------------------------
+
+void CntrApresentacaoPessoal::cadastrar()
+{
+
+    // Mensagens a serem apresentadas na tela de cadastramento.
+
+    char texto1[] = "Preencha os seguintes campos: ";
+    char texto2[] = "Nome            :";
+    char texto3[] = "Email           :";
+    char texto6[] = "Senha           :";
+    char texto10[] = "Dados em formato incorreto. Digite algo.";
+    char texto11[] = "Sucesso no cadastramento. Digite algo.";
+    char texto12[] = "Falha no cadastramento. Digite algo.";
+
+    char campo1[80], campo2[80], campo3[80], campo5[80]; // Cria campos para entrada dos dados.
+
+    // Instancia os dom�nios.
+
+    Nome nome;
+    Email email;
+    Senha senha;
+
+    // Apresenta tela de cadastramento.
+
+    CLR_SCR; // Limpa janela.
+
+    cout << texto1 << endl;              // Imprime solicita��o ao usu�rio.
+    cout << texto2 << " ";               // Imprime nome do campo.
+    cin.getline(campo1, sizeof(campo1)); // L� valor do campo composto.
+
+    cout << "Valor lido" << campo1 << " ";
+
+    cout << texto3 << " "; // Imprime nome do campo.
+    cin >> campo2;         // L� valor do campo.
+    cout << texto6 << " "; // Imprime nome do campo.
+    cin >> campo5;         // L� valor do campo.
+
+    try
+    {
+        nome.setValor(string(campo1));
+        email.setValor(string(campo2));
+        senha.setValor(string(campo5));
+    }
+    catch (invalid_argument &exp)
+    {
+        cout << texto10 << endl; // Informa formato incorreto.
+        getch();                 // Leitura de caracter digitado.
+        return;
+    }
+
+    // Instancia e inicializa entidades.
+
+    Usuario usuario;
+
+    usuario.setNome(nome);
+    usuario.setEmail(email);
+    usuario.setSenha(senha);
+
+    // Cadastra usu�rio e conta.
+
+    if (cntrServicoPessoal->cadastrarUsuario(usuario))
+    {
+        cout << texto11 << endl; // Informa sucesso.
+        getch();
+        return;
+    }
+
+    cout << texto12 << endl; // Informa falha.
+    getch();
+
+    return;
 }

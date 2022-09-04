@@ -19,4 +19,15 @@ public:
     bool autenticar(Email, Senha);
 };
 
+//--------------------------------------------------------------------------------------------
+
+class StubServicoPessoal : public IServicoPessoal
+{
+private:
+    static const string INVALIDO;
+
+public:
+    bool cadastrarUsuario(Usuario);
+};
+
 #endif // STUBS_H_INCLUDED
