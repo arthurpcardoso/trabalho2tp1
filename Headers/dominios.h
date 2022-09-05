@@ -87,7 +87,7 @@ inline string Data::getValor() const
 }
 
 /**
- * @brief Dominio Descricao: valida e armazena a descricao dada pelo usuario a hospedagem- Feito por: Arthur Pereira Cardoso 211038191
+ * @brief Dominio Descricao: valida e armazena a descricao dada pelo usuario a hospedagem - Feito por: Arthur Pereira Cardoso 211038191
  *
  */
 class Descricao
@@ -109,7 +109,7 @@ inline string Descricao::getValor() const
 }
 
 /**
- * @brief Dominio Email: valida e armazena o email utilizado no cadastro dok usuario - Feito por Arthur Pereira Cardoso 211038191
+ * @brief Dominio Email: valida e armazena o email utilizado no cadastro do usuario - Feito por Arthur Pereira Cardoso 211038191
  *
  */
 class Email

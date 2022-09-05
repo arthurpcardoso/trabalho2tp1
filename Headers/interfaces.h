@@ -5,6 +5,9 @@
 #include "entidades.h"
 
 class IServicoAutenticacao;
+class IServicoPessoal;
+
+// Apresentacoes
 
 class IApresentacaoAutenticacao
 {
@@ -14,11 +17,27 @@ public:
     virtual ~IApresentacaoAutenticacao() {}
 };
 
+class IApresentacaoPessoal{
+    public:
+        virtual void executar(Email) = 0;
+        virtual void cadastrar() = 0;
+        virtual void setCntrServicoPessoal(IServicoPessoal*) = 0;
+        virtual ~IApresentacaoPessoal(){}
+};
+
+// Servicos
+
 class IServicoAutenticacao
 {
 public:
     virtual bool autenticar(Email, Senha) = 0;
     virtual ~IServicoAutenticacao() {}
+};
+
+class IServicoPessoal{
+public:
+        virtual bool cadastrarUsuario(Usuario) = 0;
+        virtual ~IServicoPessoal(){}
 };
 
 #endif // INTERFACES_H_INCLUDED

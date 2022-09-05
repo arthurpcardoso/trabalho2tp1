@@ -8,7 +8,7 @@
 using namespace std;
 
 //--------------------------------------------------------------------------------------------
-// Declara��es de classes stub.
+// Declaracoes de classes stub.
 
 class StubServicoAutenticacao : public IServicoAutenticacao
 {
@@ -17,6 +17,13 @@ private:
 
 public:
     bool autenticar(Email, Senha);
+};
+
+class StubServicoPessoal:public IServicoPessoal {
+    private:
+        static const string INVALIDO;
+    public:
+        bool cadastrarUsuario(Usuario);
 };
 
 #endif // STUBS_H_INCLUDED

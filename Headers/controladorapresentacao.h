@@ -16,10 +16,12 @@ class CntrApresentacaoControle
 private:
     Email email;
     IApresentacaoAutenticacao *cntrApresentacaoAutenticacao;
+    IApresentacaoPessoal *cntrApresentacaoPessoal;
 
 public:
     void executar();
-    void setCntrApresentacaoAutenticacao(IApresentacaoAutenticacao *);
+    void setCntrApresentacaoAutenticacao(IApresentacaoAutenticacao*);
+    void setCntrApresentacaoPessoal(IApresentacaoPessoal*);
 };
 
 inline void CntrApresentacaoControle::setCntrApresentacaoAutenticacao(IApresentacaoAutenticacao *cntr)
@@ -27,7 +29,13 @@ inline void CntrApresentacaoControle::setCntrApresentacaoAutenticacao(IApresenta
     cntrApresentacaoAutenticacao = cntr;
 }
 
+inline void CntrApresentacaoControle::setCntrApresentacaoPessoal(IApresentacaoPessoal *cntr)
+{
+    cntrApresentacaoPessoal = cntr;
+}
+
 //--------------------------------------------------------------------------------------------
+// Classe  controladora de apresentacao autenticacao
 
 class CntrApresentacaoAutenticacao : public IApresentacaoAutenticacao
 {
@@ -42,6 +50,26 @@ public:
 inline void CntrApresentacaoAutenticacao::setCntrServicoAutenticacao(IServicoAutenticacao *cntr)
 {
     this->cntr = cntr;
+}
+
+//--------------------------------------------------------------------------------------------
+// Classe controladora de apresentacao pessoal
+
+class CntrApresentacaoPessoal : public IApresentacaoPessoal
+{
+    private:
+        IServicoPessoal *cntrServicoPessoal;
+        void consultarDadosPessoais()
+    public:
+        void executar(Email);
+        void cadastrar():
+        void setCntrServicoPessoal(IServicoPessoal*);
+    
+};
+
+inline void CntrApresentacaoPessoal::setCntrServicoPessoal(IServicoPessoal *cntr)
+{
+    cntrServicoPessoal = cntr;
 }
 
 #endif // CONTROLADORASAPRESENTACAO_H_INCLUDED

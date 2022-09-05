@@ -11,4 +11,11 @@ public:
     virtual bool autenticar(Email, Senha);
 };
 
+class CntrServicoPessoal:public IServicoPessoal{
+    public:
+        bool cadastrarUsuario(Usuario);
+};
+
+// listar hospedagens disponiveis
+
 #endif // CONTROLADORASSERVICO_H_INCLUDED
