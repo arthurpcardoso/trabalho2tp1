@@ -2,8 +2,8 @@
 #define BUILDERS_H_INCLUDED
 
 #include "interfaces.h"
-#include "controladorasapresentacao.h"
-#include "controladorasservico.h"
+#include "controladorapresentacao.h"
+#include "controladorservico.h"
 #include "stubs.h"
 
 class BuilderSistema {

@@ -59,7 +59,7 @@ class CntrApresentacaoPessoal : public IApresentacaoPessoal
 {
     private:
         IServicoPessoal *cntrServicoPessoal;
-        void consultarDadosPessoais()
+        void consultarDadosPessoais();
     public:
         void executar(Email);
         void cadastrar():
