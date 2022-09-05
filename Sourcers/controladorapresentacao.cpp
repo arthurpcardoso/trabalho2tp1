@@ -55,6 +55,9 @@ void CntrApresentacaoControle::executar()
             cntrApresentacaoPessoal->cadastrar();
             break;
         case 3:
+            cout << "Em producao" << endl;
+            break;
+        case 4:
             apresentar = false;
             break;
         }

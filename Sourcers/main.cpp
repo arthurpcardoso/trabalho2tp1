@@ -15,19 +15,34 @@ using namespace std;
 
 int main()
 {
+    // Declarar poteiros e instanciar controladoras.
 
     CntrApresentacaoControle *cntrApresentacaoControle;
     IApresentacaoAutenticacao *cntrApresentacaoAutenticacao;
+    IApresentacaoPessoal *cntrApresentacaoPessoal;
 
     cntrApresentacaoControle = new CntrApresentacaoControle();
     cntrApresentacaoAutenticacao = new CntrApresentacaoAutenticacao();
+    cntrApresentacaoPessoal = new CntrApresentacaoPessoal();
+
+    // Instanciar stubs.
 
     IServicoAutenticacao *stubServicoAutenticacao;
+    IServicoPessoal *stubServicoPessoal;
 
     stubServicoAutenticacao = new StubServicoAutenticacao();
+    stubServicoPessoal = new StubServicoPessoal();
+
+    // Interligar controladoras e stubs.
 
     cntrApresentacaoControle->setCntrApresentacaoAutenticacao(cntrApresentacaoAutenticacao);
+    cntrApresentacaoControle->setCntrApresentacaoPessoal(cntrApresentacaoPessoal);
+
     cntrApresentacaoAutenticacao->setCntrServicoAutenticacao(stubServicoAutenticacao);
 
-    cntrApresentacaoControle->executar();
+    cntrApresentacaoPessoal->setCntrServicoPessoal(stubServicoPessoal);
+
+    cntrApresentacaoControle->executar(); // Solicitar servi�o.
+
+    return 0;
 }
