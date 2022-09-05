@@ -4,6 +4,7 @@
 #include "dominios.h"
 #include "entidades.h"
 #include "interfaces.h"
+#include "containers.h"
 
 class CntrServicoAutenticacao : public IServicoAutenticacao
 {

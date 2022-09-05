@@ -2,7 +2,7 @@
 
 // utiliza os containers
 
-bool CntrServicoAutenticacao::autenticar(CPF cpf, Senha senha){
+bool CntrServicoAutenticacao::autenticar(Email email, Senha senha){
 
     // ---------------------------------------------------------------------------------------
     // Instanciar container de usu�rios.
@@ -23,13 +23,13 @@ bool CntrServicoAutenticacao::autenticar(CPF cpf, Senha senha){
 
 bool CntrServicoPessoal::cadastrarUsuario(Usuario usuario){
 
-    // Instancia container de usu�rios.
+    // Instancia container de usuarios.
 
     ContainerUsuario *container;
 
     container = ContainerUsuario::getInstancia();
 
-    // Solicitar cadastramento de usu�rio e retornar resultado da solicita��o de servi�o.
+    // Solicitar cadastramento de usuario e retornar resultado da solicitacao de servico.
 
     return container->incluir(usuario);
 }
