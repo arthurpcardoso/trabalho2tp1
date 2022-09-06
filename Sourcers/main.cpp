@@ -42,7 +42,7 @@ int main()
 
     cntrApresentacaoPessoal->setCntrServicoPessoal(stubServicoPessoal);
 
-    cntrApresentacaoControle->executar(); // Solicitar servi�o.
+    cntrApresentacaoControle->executar(); // Solicitar servico.
 
     return 0;
 }

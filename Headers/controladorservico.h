@@ -4,6 +4,7 @@
 #include "dominios.h"
 #include "entidades.h"
 #include "interfaces.h"
+#include "containers.h"
 
 //--------------------------------------------------------------------------------------------
 // Declara��es de classes controladoras de servi�o.
@@ -18,6 +19,8 @@ public:
 
 class CntrServicoPessoal : public IServicoPessoal
 {
+public:
+    bool cadastrarUsuario(Usuario);
 };
 
 #endif // CONTROLADORASSERVICO_H_INCLUDED

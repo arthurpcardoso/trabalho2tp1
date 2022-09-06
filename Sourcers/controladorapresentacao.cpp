@@ -8,18 +8,18 @@ void CntrApresentacaoControle::executar()
     char texto1[] = "Selecione um dos servicos : ";
     char texto2[] = "1 - Acessar sistema.";
     char texto3[] = "2 - Cadastrar usuario.";
-    char texto4[] = "3 - Em producao";
+    char texto4[] = "3 - Ver hospedagens.";
     char texto5[] = "4 - Encerrar execucao do sistema.";
 
-    // Mensagens a serem apresentadas na tela de sele��o de servi�o.
+    // Mensagens a serem apresentadas na tela de selecao de servico.
 
     char texto9[] = "3 - Encerrar sessao.";
 
-    char texto10[] = "Falha na autenticacao. Digite algo para continuar."; // Mensagem a ser apresentada.
+    char texto10[] = "Falha na autenticacao. Digite algo para continuar.";
 
     int campo; // Campo de entrada.
 
-    bool apresentar = true; // Controle de la�o.
+    bool apresentar = true; // Controle de laco.
 
     while (apresentar)
     {
@@ -28,26 +28,25 @@ void CntrApresentacaoControle::executar()
 
         CLR_SCR; // Limpa janela.
 
-        cout << texto1 << endl; // Imprime nome do campo.
-        cout << texto2 << endl; // Imprime nome do campo.
-        cout << texto3 << endl; // Imprime nome do campo.
-        cout << texto4 << endl; // Imprime nome do campo.
-        cout << texto5 << endl; // Imprime nome do campo.
+        cout << texto1 << endl; 
+        cout << texto2 << endl; 
+        cout << texto3 << endl; 
+        cout << texto4 << endl; 
+        cout << texto5 << endl; 
 
-        campo = getch() - 48; // Leitura do campo de entrada e convers�o de ASCII.
+        campo = getch() - 48; // Leitura do campo de entrada e conversao de ASCII.
 
         switch (campo)
         {
         case 1:
             if (cntrApresentacaoAutenticacao->autenticar(&email))
-            { // Solicita autentica��o.
-                cout << "autenticado" << endl;
+            {
                 break;
             }
             else
             {
                 CLR_SCR;                 // Limpa janela.
-                cout << texto10 << endl; // Imprime mensagem.
+                cout << texto10 << endl;
                 getch();                 // Leitura de caracter digitado.
             }
             break;
@@ -68,7 +67,7 @@ void CntrApresentacaoControle::executar()
 bool CntrApresentacaoAutenticacao::autenticar(Email *email)
 {
 
-    // Mensagens a serem apresentadas na tela de autentica��o.
+    // Mensagens a serem apresentadas na tela de autenticacao.
 
     char texto1[] = "Digite o Email: ";
     char texto2[] = "Digite a senha: ";
@@ -84,26 +83,26 @@ bool CntrApresentacaoAutenticacao::autenticar(Email *email)
     while (true)
     {
 
-        // Apresenta tela de autentica��o.
+        // Apresenta tela de autenticacao.
 
         CLR_SCR; // Limpa janela.
 
         cout << texto1 << " "; // Imprime nome do campo.
-        cin >> campo1;         // L� valor do campo.
+        cin >> campo1;         // Le valor do campo.
         cout << texto2 << " "; // Imprime nome do campo.
-        cin >> campo2;         // L� valor do campo.
+        cin >> campo2;         // Le valor do campo.
 
         try
         {
-            email->setValor(string(campo1)); // Atribui valor ao CPF.
-            senha.setValor(string(campo2));  // Atribui Valor � senha.
-            break;                           // Abandona la�o em caso de formatos corretos.
+            email->setValor(string(campo1)); // Atribui valor ao email.
+            senha.setValor(string(campo2));  // Atribui Valor a senha.
+            break;                           // Abandona laco em caso de formatos corretos.
         }
         catch (invalid_argument &exp)
-        {                           // Captura exce��o devido a formato incorreto.
+        {                           // Captura excecao devido a formato incorreto.
             CLR_SCR;                // Limpa janela.
             cout << texto3 << endl; // Informa formato incorreto.
-            getch();                // L� caracter digitado.
+            getch();                // Le caracter digitado.
         }
     }
     return (cntr->autenticar(*email, senha)); // Solicita servi�o de autentica��o.
@@ -114,7 +113,7 @@ bool CntrApresentacaoAutenticacao::autenticar(Email *email)
 void CntrApresentacaoPessoal::executar(Email email)
 {
 
-    // Mensagens a serem apresentadas na tela de sele��o de servi�o..
+    // Mensagens a serem apresentadas na tela de selecao de servico..
 
     char texto1[] = "Selecione um dos servicos : ";
     char texto2[] = "1 - Consultar dados pessoais.";
@@ -122,12 +121,12 @@ void CntrApresentacaoPessoal::executar(Email email)
 
     int campo; // Campo de entrada.
 
-    bool apresentar = true; // Controle de la�o.
+    bool apresentar = true; // Controle de laco.
 
     while (apresentar)
     {
 
-        // Apresenta tela de sela��o de servi�o.
+        // Apresenta tela de selacao de servico.
 
         CLR_SCR; // Limpa janela.
 
@@ -135,7 +134,7 @@ void CntrApresentacaoPessoal::executar(Email email)
         cout << texto2 << endl; // Imprime nome do campo.
         cout << texto3 << endl; // Imprime nome do campo.
 
-        campo = getch() - 48; // Leitura do campo de entrada e convers�o de ASCII.
+        campo = getch() - 48; // Leitura do campo de entrada e conversao de ASCII.
 
         switch (campo)
         {
@@ -159,40 +158,57 @@ void CntrApresentacaoPessoal::cadastrar()
     char texto1[] = "Preencha os seguintes campos: ";
     char texto2[] = "Nome            :";
     char texto3[] = "Email           :";
-    char texto6[] = "Senha           :";
-    char texto10[] = "Dados em formato incorreto. Digite algo.";
-    char texto11[] = "Sucesso no cadastramento. Digite algo.";
-    char texto12[] = "Falha no cadastramento. Digite algo.";
+    char texto4[] = "Senha           :";
+    char texto5[] = "Idioma          :";
+    char texto6[] = "Data            :";
+    char texto7[] = "Descricao       :";
+    char texto8[] = "Dados em formato incorreto. Digite algo.";
+    char texto9[] = "Sucesso no cadastramento. Digite algo.";
+    char texto10[] = "Falha no cadastramento. Digite algo.";
 
-    char campo1[80], campo2[80], campo3[80], campo5[80]; // Cria campos para entrada dos dados.
+    char campo1[80], campo2[80], campo3[80], campo4[80], campo5[80], campo6[80]; // Cria campos para entrada dos dados.
 
-    // Instancia os dom�nios.
+    // Instancia os dominios.
 
     Nome nome;
     Email email;
     Senha senha;
+    Idioma idioma;
+    Data data;
+    Descricao descricao;
+
 
     // Apresenta tela de cadastramento.
 
     CLR_SCR; // Limpa janela.
 
-    cout << texto1 << endl; // Imprime solicita��o ao usu�rio.
-    cout << texto2 << " ";  // Imprime nome do campo.
+    cout << texto1 << endl; 
+    cout << texto2 << " ";  
     cin.getline(campo1, sizeof(campo1));
-    cout << texto3 << " "; // Imprime nome do campo.
-    cin >> campo2;         // L� valor do campo.
-    cout << texto6 << " "; // Imprime nome do campo.
-    cin >> campo5;         // L� valor do campo.
+    cout << texto3 << " "; 
+    cin >> campo2;         
+    cout << texto4 << " "; 
+    cin >> campo3;
+    cout << texto5 << " "; 
+    cin >> campo4;    
+    cout << texto6 << " "; 
+    cin >> campo5;       
+    cout << texto7 << " ";
+    cin >> campo6;
+    //cin.getline(campo6, sizeof(campo6));
 
     try
     {
         nome.setValor(string(campo1));
         email.setValor(string(campo2));
-        senha.setValor(string(campo5));
+        senha.setValor(string(campo3));
+        idioma.setValor(string(campo4));
+        data.setValor(string(campo5));
+        descricao.setValor(string(campo6));
     }
     catch (invalid_argument &exp)
     {
-        cout << texto10 << endl; // Informa formato incorreto.
+        cout << texto8 << endl; // Informa formato incorreto.
         getch();                 // Leitura de caracter digitado.
         return;
     }
@@ -204,17 +220,20 @@ void CntrApresentacaoPessoal::cadastrar()
     usuario.setNome(nome);
     usuario.setEmail(email);
     usuario.setSenha(senha);
+    usuario.setIdioma(idioma);
+    usuario.setData(data);
+    usuario.setDescricao(descricao);
 
-    // Cadastra usu�rio e conta.
+    // Cadastra usuario e conta.
 
     if (cntrServicoPessoal->cadastrarUsuario(usuario))
     {
-        cout << texto11 << endl; // Informa sucesso.
+        cout << texto9 << endl; // Informa sucesso.
         getch();
         return;
     }
 
-    cout << texto12 << endl; // Informa falha.
+    cout << texto10 << endl; // Informa falha.
     getch();
 
     return;

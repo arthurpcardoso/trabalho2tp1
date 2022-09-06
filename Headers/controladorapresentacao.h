@@ -12,7 +12,6 @@
 #define CLR_SCR system("cls");
 
 //--------------------------------------------------------------------------------------------
-// Declara��es de classes controladoras e implementa��es de m�todos.
 
 class CntrApresentacaoControle
 {
