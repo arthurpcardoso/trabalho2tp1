@@ -111,6 +111,46 @@ bool CntrApresentacaoAutenticacao::autenticar(Email *email)
 
 //--------------------------------------------------------------------------------------------
 
+void CntrApresentacaoPessoal::executar(Email email)
+{
+
+    // Mensagens a serem apresentadas na tela de sele��o de servi�o..
+
+    char texto1[] = "Selecione um dos servicos : ";
+    char texto2[] = "1 - Consultar dados pessoais.";
+    char texto3[] = "2 - Retornar.";
+
+    int campo; // Campo de entrada.
+
+    bool apresentar = true; // Controle de la�o.
+
+    while (apresentar)
+    {
+
+        // Apresenta tela de sela��o de servi�o.
+
+        CLR_SCR; // Limpa janela.
+
+        cout << texto1 << endl; // Imprime nome do campo.
+        cout << texto2 << endl; // Imprime nome do campo.
+        cout << texto3 << endl; // Imprime nome do campo.
+
+        campo = getch() - 48; // Leitura do campo de entrada e convers�o de ASCII.
+
+        switch (campo)
+        {
+        case 1:
+            consultarDadosPessoais();
+            break;
+        case 2:
+            apresentar = false;
+            break;
+        }
+    }
+}
+
+//--------------------------------------------------------------------------------------------
+
 void CntrApresentacaoPessoal::cadastrar()
 {
 
@@ -181,4 +221,23 @@ void CntrApresentacaoPessoal::cadastrar()
     getch();
 
     return;
+}
+
+//--------------------------------------------------------------------------------------------
+
+void CntrApresentacaoPessoal::consultarDadosPessoais()
+{
+
+    //--------------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------------
+    // Substituir c�digo seguinte pela implementa��o do m�todo.
+    //--------------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------------
+
+    // Mensagens a serem apresentadas na tela de apresenta��o de dados pessoais.
+
+    char texto[] = "Servico consultar dados pessoais nao implementado. Digite algo."; // Mensagem a ser apresentada.
+    CLR_SCR;                                                                          // Limpa janela.
+    cout << texto << endl;                                                            // Imprime nome do campo.
+    getch();
 }
