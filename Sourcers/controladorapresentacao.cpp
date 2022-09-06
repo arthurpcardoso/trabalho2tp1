@@ -43,13 +43,15 @@ void CntrApresentacaoControle::executar()
             { // Solicita autenticacao.
                 cout << "autenticado" << endl;
                 break;
-            // case 2: cntrApresentacaoPessoal->cadastrar();
-            //         break;
-            // case 3: cntrApresentacaoProdutosFinanceiros->executar();
-            //         break;
-            case 4:
-                apresentar = false;
-                break;
+        case 2: 
+            cntrApresentacaoPessoal->cadastrar();
+            break;
+        case 3: 
+            cout<< "Em producao" << endl;
+            break;
+        case 4:
+            apresentar = false;
+            break;
             }
         }
         return;
@@ -191,7 +193,7 @@ void CntrApresentacaoPessoal::cadastrar(){
     usuario.setSenha(senha);
 
 
-    // Cadastra usu�rio e conta.
+    // Cadastra usuario e conta.
 
     if(cntrServicoPessoal->cadastrarUsuario(usuario))
         {
