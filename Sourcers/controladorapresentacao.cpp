@@ -176,12 +176,9 @@ void CntrApresentacaoPessoal::cadastrar()
 
     CLR_SCR; // Limpa janela.
 
-    cout << texto1 << endl;              // Imprime solicita��o ao usu�rio.
-    cout << texto2 << " ";               // Imprime nome do campo.
-    cin.getline(campo1, sizeof(campo1)); // L� valor do campo composto.
-
-    cout << "Valor lido" << campo1 << " ";
-
+    cout << texto1 << endl; // Imprime solicita��o ao usu�rio.
+    cout << texto2 << " ";  // Imprime nome do campo.
+    cin.getline(campo1, sizeof(campo1));
     cout << texto3 << " "; // Imprime nome do campo.
     cin >> campo2;         // L� valor do campo.
     cout << texto6 << " "; // Imprime nome do campo.
