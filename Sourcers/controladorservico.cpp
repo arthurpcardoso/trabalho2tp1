@@ -1,38 +1,28 @@
 #include "../Headers/controladorservico.h"
 
 //--------------------------------------------------------------------------------------------
-// Implementa��es de m�todos de classes controladoras da camada de servi�o.
+// Implementacoes de metodos de classes controladoras da camada de servico.
 
 bool CntrServicoAutenticacao::autenticar(Email email, Senha senha)
 {
 
     Usuario usuario;
 
-    // ---------------------------------------------------------------------------------------
-    // Instanciar container de usu�rios.
-    // ---------------------------------------------------------------------------------------
-
     ContainerUsuario *container;
 
     container = ContainerUsuario::getInstancia();
 
-    // ---------------------------------------------------------------------------------------
-    // Recuperar e comparar senha de usu�rio.
-    // ---------------------------------------------------------------------------------------
-
     usuario.setEmail(email);
+
+    container->pesquisar(&usuario);
 
     if (usuario.getSenha().getValor() == senha.getValor())
     {
-        cout << "deu certo" << endl;
+        return true;
     }
 
-    // ---------------------------------------------------------------------------------------
-    // Retornar resultado.
-    // ---------------------------------------------------------------------------------------
-
-    return true;
-    ;
+    return false;
+    
 }
 
 //--------------------------------------------------------------------------------------------
@@ -40,13 +30,9 @@ bool CntrServicoAutenticacao::autenticar(Email email, Senha senha)
 bool CntrServicoPessoal::cadastrarUsuario(Usuario usuario)
 {
 
-    // Instancia container de usu�rios.
-
     ContainerUsuario *container;
 
     container = ContainerUsuario::getInstancia();
-
-    // Solicitar cadastramento de usu�rio e retornar resultado da solicita��o de servi�o.
 
     return container->incluir(usuario);
 }

@@ -8,14 +8,14 @@ void CntrApresentacaoControle::executar()
     char texto1[] = "Selecione um dos servicos : ";
     char texto2[] = "1 - Acessar sistema.";
     char texto3[] = "2 - Cadastrar usuario.";
-    char texto4[] = "3 - Ver hospedagens.";
+    char texto4[] = "3 - Listar hospedagens.";
     char texto5[] = "4 - Encerrar execucao do sistema.";
 
     // Mensagens a serem apresentadas na tela de selecao de servico.
 
-    char texto9[] = "3 - Encerrar sessao.";
+    char texto9[] = "Aperte algum botão para continuar.";
 
-    char texto10[] = "Falha na autenticacao. Digite algo para continuar.";
+    char texto10[] = "Falha na autenticacao.";
 
     int campo; // Campo de entrada.
 
@@ -41,12 +41,14 @@ void CntrApresentacaoControle::executar()
         case 1:
             if (cntrApresentacaoAutenticacao->autenticar(&email))
             {
+                cntrApresentacaoPessoal->executar(email);
                 break;
             }
             else
             {
                 CLR_SCR;                 // Limpa janela.
                 cout << texto10 << endl;
+                cout << texto9 << endl;
                 getch();                 // Leitura de caracter digitado.
             }
             break;
@@ -54,7 +56,10 @@ void CntrApresentacaoControle::executar()
             cntrApresentacaoPessoal->cadastrar();
             break;
         case 3:
+            CLR_SCR;
             cout << "Em producao" << endl;
+            cout << texto9 << endl;
+            getch();
             break;
         case 4:
             apresentar = false;
@@ -117,7 +122,9 @@ void CntrApresentacaoPessoal::executar(Email email)
 
     char texto1[] = "Selecione um dos servicos : ";
     char texto2[] = "1 - Consultar dados pessoais.";
-    char texto3[] = "2 - Retornar.";
+    char texto3[] = "2 - Consultar suas hospedagens.";
+    char texto4[] = "3 - Consultar suas avaliacoes";
+    char texto5[] = "4 - Retornar";
 
     int campo; // Campo de entrada.
 
@@ -133,6 +140,8 @@ void CntrApresentacaoPessoal::executar(Email email)
         cout << texto1 << endl; // Imprime nome do campo.
         cout << texto2 << endl; // Imprime nome do campo.
         cout << texto3 << endl; // Imprime nome do campo.
+        cout << texto4 << endl; // Imprime nome do campo.
+        cout << texto5 << endl; // Imprime nome do campo.
 
         campo = getch() - 48; // Leitura do campo de entrada e conversao de ASCII.
 
@@ -142,6 +151,12 @@ void CntrApresentacaoPessoal::executar(Email email)
             consultarDadosPessoais();
             break;
         case 2:
+            cntrApresentacaoHospedagem->executar();
+            break;
+        case 3:
+            cntrApresentacaoAvaliacao->executar();
+            break;
+        case 4:
             apresentar = false;
             break;
         }
@@ -160,7 +175,7 @@ void CntrApresentacaoPessoal::cadastrar()
     char texto3[] = "Email           :";
     char texto4[] = "Senha           :";
     char texto5[] = "Idioma          :";
-    char texto6[] = "Data            :";
+    char texto6[] = "Aniversario     :";
     char texto7[] = "Descricao       :";
     char texto8[] = "Dados em formato incorreto. Digite algo.";
     char texto9[] = "Sucesso no cadastramento. Digite algo.";
@@ -257,3 +272,104 @@ void CntrApresentacaoPessoal::consultarDadosPessoais()
     cout << texto << endl;                                                            // Imprime nome do campo.
     getch();
 }
+
+//--------------------------------------------------------------------------------------------
+/*
+void CntrApresentacaoHospedagem::executar()
+{
+
+    // Mensagens a serem apresentadas na tela de selecao de servico..
+
+    char texto1[] = "Selecione um dos servicos : ";
+    char texto2[] = "1 - Cadastrar hospedagem.";
+    char texto3[] = "2 - Editar hospedagem.";
+    char texto4[] = "3 - Descadastrar hospedagem";
+    char texto5[] = "4 - Retornar";
+
+    int campo; // Campo de entrada.
+
+    bool apresentar = true; // Controle de laco.
+
+    while (apresentar)
+    {
+
+        // Apresenta tela de selacao de servico.
+
+        CLR_SCR; // Limpa janela.
+
+        cout << texto1 << endl; // Imprime nome do campo.
+        cout << texto2 << endl; // Imprime nome do campo.
+        cout << texto3 << endl; // Imprime nome do campo.
+        cout << texto4 << endl; // Imprime nome do campo.
+        cout << texto5 << endl; // Imprime nome do campo.
+
+        campo = getch() - 48; // Leitura do campo de entrada e conversao de ASCII.
+
+        switch (campo)
+        {
+        case 1:
+            cout << "Em producao" << endl;
+            break;
+        case 2:
+            cout << "Em producao" << endl;
+            break;
+        case 3:
+            cout << "Em producao" << endl;
+            break;
+        case 4:
+            apresentar = false;
+            break;
+        }
+    }
+}
+
+//--------------------------------------------------------------------------------------------
+
+void CntrApresentacaoAvaliacao::executar()
+{
+
+    // Mensagens a serem apresentadas na tela de selecao de servico..
+
+    char texto1[] = "Selecione um dos servicos : ";
+    char texto2[] = "1 - Consultar avaliacao.";
+    char texto3[] = "2 - Editar avaliacao.";
+    char texto4[] = "3 - Descadastrar avaliacao";
+    char texto5[] = "4 - Retornar";
+
+    int campo; // Campo de entrada.
+
+    bool apresentar = true; // Controle de laco.
+
+    while (apresentar)
+    {
+
+        // Apresenta tela de selacao de servico.
+
+        CLR_SCR; // Limpa janela.
+
+        cout << texto1 << endl; // Imprime nome do campo.
+        cout << texto2 << endl; // Imprime nome do campo.
+        cout << texto3 << endl; // Imprime nome do campo.
+        cout << texto4 << endl; // Imprime nome do campo.
+        cout << texto5 << endl; // Imprime nome do campo.
+
+        campo = getch() - 48; // Leitura do campo de entrada e conversao de ASCII.
+
+        switch (campo)
+        {
+        case 1:
+            cout << "Em producao" << endl;
+            break;
+        case 2:
+            cout << "Em producao" << endl;
+            break;
+        case 3:
+            cout << "Em producao" << endl;
+            break;
+        case 4:
+            apresentar = false;
+            break;
+        }
+    }
+}
+*/

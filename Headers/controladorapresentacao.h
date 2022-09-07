@@ -72,4 +72,39 @@ inline void CntrApresentacaoPessoal::setCntrServicoPessoal(IServicoPessoal *cntr
     cntrServicoPessoal = cntr;
 }
 
+//--------------------------------------------------------------------------------------------
+/*
+class CntrApresentacaoHospedagem : public IApresentacaoHospedagem
+{
+private:
+    IServicoHospedagem *cntrServicoHospedagem;
+
+public:
+    bool executar();
+    void setCntrServicoHospedagem(IServicoHospedagem *);
+};
+
+inline void CntrApresentacaoHospedagem::setCntrServicoHospedagem(IServicoHospedagem *cntr)
+{
+    this->cntr = cntr;
+}
+
+//--------------------------------------------------------------------------------------------
+
+class CntrApresentacaoAvaliacao : public IApresentacaoAvaliacao
+{
+private:
+    IServicoAvaliacao *cntrServicoAvaliacao;
+
+public:
+    bool executar();
+    void setCntrServicoAvaliacao(IServicoAvaliacao *);
+};
+
+inline void CntrApresentacaoAvaliacao::setCntrServicoAvaliacao(IServicoAvaliacao *cntr)
+{
+    this->cntr = cntr;
+}
+*/
+
 #endif // CONTROLADORASAPRESENTACAO_H_INCLUDED
