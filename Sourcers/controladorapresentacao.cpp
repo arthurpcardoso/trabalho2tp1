@@ -151,11 +151,15 @@ void CntrApresentacaoPessoal::executar(Email email)
             consultarDadosPessoais();
             break;
         case 2:
+            CLR_SCR;
             cout << "Nao implementado" << endl;
             //cntrApresentacaoHospedagem->executar();
+            getch();
             break;
         case 3:
+            CLR_SCR;
             cout << "Nao implementado" << endl;
+            getch();
             //cntrApresentacaoAvaliacao->executar();
             break;
         case 4:
