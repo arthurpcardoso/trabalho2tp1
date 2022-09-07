@@ -13,7 +13,7 @@ void CntrApresentacaoControle::executar()
 
     // Mensagens a serem apresentadas na tela de selecao de servico.
 
-    char texto9[] = "Aperte algum botão para continuar.";
+    char texto9[] = "Aperte algum botao para continuar.";
 
     char texto10[] = "Falha na autenticacao.";
 
@@ -151,10 +151,12 @@ void CntrApresentacaoPessoal::executar(Email email)
             consultarDadosPessoais();
             break;
         case 2:
-            cntrApresentacaoHospedagem->executar();
+            cout << "Nao implementado" << endl;
+            //cntrApresentacaoHospedagem->executar();
             break;
         case 3:
-            cntrApresentacaoAvaliacao->executar();
+            cout << "Nao implementado" << endl;
+            //cntrApresentacaoAvaliacao->executar();
             break;
         case 4:
             apresentar = false;
@@ -261,11 +263,11 @@ void CntrApresentacaoPessoal::consultarDadosPessoais()
 
     //--------------------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------------
-    // Substituir c�digo seguinte pela implementa��o do m�todo.
+    // Substituir codigo seguinte pela implementacao do metodo.
     //--------------------------------------------------------------------------------------------
     //--------------------------------------------------------------------------------------------
 
-    // Mensagens a serem apresentadas na tela de apresenta��o de dados pessoais.
+    // Mensagens a serem apresentadas na tela de apresentacao de dados pessoais.
 
     char texto[] = "Servico consultar dados pessoais nao implementado. Digite algo."; // Mensagem a ser apresentada.
     CLR_SCR;                                                                          // Limpa janela.

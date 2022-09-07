@@ -20,15 +20,17 @@ int main()
     CntrApresentacaoControle *cntrApresentacaoControle;
     IApresentacaoAutenticacao *cntrApresentacaoAutenticacao;
     IApresentacaoPessoal *cntrApresentacaoPessoal;
+    /*
     IApresentacaoHospedagem *cntrApresentacaoHospedagem;
     IApresentacaoAvaliacao *cntrApresentacaoAvaliacao;
-
+    */
     cntrApresentacaoControle = new CntrApresentacaoControle();
     cntrApresentacaoAutenticacao = new CntrApresentacaoAutenticacao();
     cntrApresentacaoPessoal = new CntrApresentacaoPessoal();
+    /*
     cntrApresentacaoHospedagem = new CntrApresentacaoHospedagem();
     cntrApresentacaoAvaliacao = new CntrApresentacaoAvaliacao();
-
+    */
     // Instanciar stubs.
 
     IServicoAutenticacao *stubServicoAutenticacao;
